@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сумма двух квадратов</title>
+</head>
+<body>
+    <script>
+        let n = Number(prompt("Введите натуральное число:"))
+        let found = false
+
+        for (let a = 1; a * a <= n; a++) {
+            let b2 = n - a * a
+            let b = Math.sqrt(b2)
+            if (Number.isInteger(b) && b >= 1) {
+                found = true
+                break
+            }
+        }
+
+        if (found) {
+            alert("Число " + n + " можно представить в виде суммы двух квадратов натуральных чисел.")
+            document.write("<p>Число " + n + " можно представить в виде суммы двух квадратов натуральных чисел.</p>")
+        } else {
+            alert("Число " + n + " нельзя представить в виде суммы двух квадратов натуральных чисел.")
+            document.write("<p>Число " + n + " нельзя представить в виде суммы двух квадратов натуральных чисел.</p>")
+        }
+    </script>
+</body>
+</html>

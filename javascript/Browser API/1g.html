@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Массив случайных чисел</title>
+</head>
+<body>
+    <h1>Массив случайных чисел</h1>
+
+    <script>
+        let n = Number(prompt("Введите количество чисел:"))
+        let array = []
+
+        for (let i = 0; i < n; i++) {
+            let num = Math.floor(Math.random() * 100) + 1
+            array.push(num)
+        }
+
+        alert("Массив создан! Нажмите ОК")
+
+        document.write("<p>Исходный массив: " + array.join(", ") + "</p>")
+
+        document.write("<p>Массив в обратном порядке, по 5 чисел в строке:</p>")
+
+        let countInLine = 0
+
+        for (let i = array.length - 1; i >= 0; i--) {
+            document.write(array[i] + " ")
+            countInLine++
+
+            if (countInLine === 5) {
+                document.write("<br>")
+                countInLine = 0
+            }
+        }
+
+        if (countInLine !== 0) {
+            document.write("<br>")
+        }
+
+    </script>
+</body>
+</html>

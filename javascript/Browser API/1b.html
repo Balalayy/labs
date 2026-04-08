@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Квадрат</title>
+</head>
+<body>
+    <script>
+        let x1 = 2  
+        let y1 = 6  
+        let x2 = 1  
+        let y2 = 5
+
+        alert("Квадрат с вершинами: (" + x1 + ", " + y1 + ") и (" + x2 + ", " + y2 + ")")
+        
+        let x = Number(prompt("Введите x точки"))
+        let y = Number(prompt("Введите y точки"))
+        
+        
+        if (x >= x1 && x <= y1 && y >= x2 && y <= y2) {
+            alert("Точка попадает в квадрат!")
+            document.write("Точка (" + x + " " + y + ") внутри квадрата")
+        } else {
+            alert("Точка не попадает в квадрат!")
+            document.write("Точка (" + x + " " + y + ") вне квадрата")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Прибавление дней к дате</title>
+</head>
+<body>
+    <h1>Прибавление дней к дате</h1>
+
+    <script>
+       let n = Number(prompt("Введите количество дней:"))
+
+        let now = new Date()
+        let newDate = new Date(now)
+        newDate.setDate(now.getDate() + n)
+
+        document.write("Сегодня: " + now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear() + "<br>")
+        document.write("Через " + n + " дней: " + newDate.getDate() + "." + (newDate.getMonth() + 1) + "." + newDate.getFullYear())
+        
+    </script>
+</body>
+</html>

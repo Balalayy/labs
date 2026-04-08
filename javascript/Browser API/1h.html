@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Матрица</title>
+</head>
+<body>
+    <h1>Квадратная матрица</h1>
+
+    <script>
+        let n = Number(prompt("Введите размер матрицы:"))
+
+        let a = []
+
+        for (let i = 0; i < n; i++) {
+            a[i] = []
+            for (let j = 0; j < n; j++) {
+                a[i][j] = Math.floor(Math.random() * 50) + 1
+            }
+        }
+
+        document.write("<h3>Исходная матрица:</h3>")
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                document.write(a[i][j] + " ")
+            }
+            document.write("<br>")
+        }
+
+        let max = a[0][0]
+        let min = a[0][0]
+
+        for (let i = 0; i < n; i++) {
+            if (a[i][i] > max) max = a[i][i]
+            if (a[i][i] < min) min = a[i][i]
+                
+            let j = n - 1 - i
+            if (a[i][j] > max) max = a[i][j]
+            if (a[i][j] < min) min = a[i][j]
+        }
+
+        for (let i = 0; i < n; i++) {
+            if (a[i][i] != max && a[i][i] != min) {
+                a[i][i] = 0
+            }
+                
+            let j = n - 1 - i
+            if (a[i][j] != max && a[i][j] != min) {
+                a[i][j] = 0
+            }
+        }
+
+        document.write("<h3>Матрица после замены:</h3>")
+
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                document.write(a[i][j] + " ")
+            }
+            document.write("<br>")
+        }
+    
+    </script>
+</body>
+</html>

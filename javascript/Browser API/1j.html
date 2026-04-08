@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сколько месяцев до 1 сентября</title>
+</head>
+<body>
+    <h1>Сколько месяцев до 1 сентября</h1>
+
+    <script>
+        let today = new Date()
+        
+        let year = today.getFullYear()
+        let month = today.getMonth()
+        
+        let septemberYear = year
+        
+        if (month >= 8) {
+            septemberYear = year + 1
+        }
+        
+        let september = new Date(septemberYear, 8, 1)
+        
+        let diffMonths = (september.getFullYear() - today.getFullYear()) * 12 + (september.getMonth() - today.getMonth())
+        
+        document.write("<p>Сегодня: " + today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear() + "</p>")
+        
+        if (diffMonths === 0) {
+            document.write("<p>Сегодня 1 сентября!</p>")
+        } else if (diffMonths === 1) {
+            document.write("<p>До 1 сентября остался 1 месяц</p>")
+        } else {
+            document.write("<p>До 1 сентября осталось " + diffMonths + " месяцев</p>")
+        }
+    </script>
+</body>
+</html>

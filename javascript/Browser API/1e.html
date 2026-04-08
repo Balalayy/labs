@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta chararset="UTF-8">
+    <title>Доля латинских букв</title>
+</head>
+<body>
+    <h1>Доля латинских букв</h1>
+
+    <script>
+        let s = prompt("Введите строку:")
+
+        let count = 0
+
+        for (let i = 0; i < s.length; i++) {
+            let char = s[i]
+            if ((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z')) {
+                count++
+            }
+        }
+
+        let percent = (count / s.length) * 100
+
+        alert("Доля латинских букв: " + percent + "%")
+        document.write("<p>Доля: " + percent + "%</p>")
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление повторных вхождений слов</title>
+</head>
+<body>
+    <h1>Удаление повторных вхождений слов</h1>
+
+    <script>
+        let s = prompt("Введите строку:")
+
+        let words = s.split(/\s+/)
+        let unique_words = []
+
+        for (let i = 0; i < words.length; i++) {
+            let found = false
+            for (let j = 0; j < unique_words.length; j++) {
+                if (unique_words[j] === words[i]) {
+                    found = true
+                    break
+                }
+            }
+            if (!found) {
+                unique_words.push(words[i])
+            }
+        }
+
+        let result = unique_words.join(" ")
+
+        alert("Результат:\n" + result)
+        document.write("Исходная строка: \"" + s + "\"")
+        document.write("<p>Строка без повторов: \"" + result + "\"</p>")
+        
+    </script>
+</body>
+</html>
