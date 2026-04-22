@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div id="text">Привет!</div>
+
+<button id="hideButton">Пока!</button>
+
+<script>
+    const button = document.getElementById('hideButton');
+    const div = document.getElementById('text');
+    
+    button.addEventListener('click', function() {
+        div.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

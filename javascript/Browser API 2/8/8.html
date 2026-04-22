@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация в сервис</title>
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="welcome.css">
+    <link rel="stylesheet" href="person.css">
+    <link rel="stylesheet" href="number.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="finish.css">
+</head>
+<body>
+
+    <section id="loaderSection">
+        <img src="8files/image6.gif" alt="Загрузка">
+    </section>
+
+    <main id="mainContent">
+        <div class="welcome-box">
+            <h1>Добро пожаловать в Сервис!</h1>
+            <p>Для продолжения нужно зарегистрироваться</p>
+            <button id="registerBtn">Регистрация</button>
+        </div>
+    </main>
+
+    <div id="registerWindow" style="display: none;">
+        <div class="register-box">
+            <h2>Шаг 1. Персональные данные</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Имя:</label>
+                    <input type="text" id="name" placeholder="Введите имя">
+                </div>
+                <div class="form-group">
+                    <label>Фамилия:</label>
+                    <input type="text" id="surname" placeholder="Введите фамилию">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Электронная почта:</label>
+                <input type="email" id="email" placeholder="Введите email">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Страна:</label>
+                    <select id="country">
+                        <option value="" disabled selected>Выберите страну</option>
+                        <option value="Египет">Египет</option>
+                        <option value="Нигерия">Нигерия</option>
+                        <option value="ЮАР">ЮАР</option>
+                        <option value="Кения">Кения</option>
+                        <option value="Марокко">Марокко</option>
+                        <option value="Гана">Гана</option>
+                        <option value="Эфиопия">Эфиопия</option>
+                        <option value="Танзания">Танзания</option>
+                        <option value="Алжир">Алжир</option>
+                        <option value="Уганда">Уганда</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Адрес:</label>
+                    <input type="text" id="address" placeholder="Введите адрес">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Пароль:</label>
+                <input type="password" id="password" placeholder="Введите пароль">
+            </div>
+            <div class="form-group">
+                <label>Повторите пароль:</label>
+                <input type="password" id="confirmPassword" placeholder="Повторите пароль">
+            </div>
+            <div class="btn-group">
+                <button type="button" id="cancel1Btn" class="btn-cancel">Отмена</button>
+                <button type="button" id="next1Btn" class="btn-next" disabled>Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="phoneWindow" style="display: none;">
+        <div class="register-box">
+            <h2>Шаг 2. Телефонный номер</h2>
+            <p class="info-text">В целях безопасности Сервису нужно подтверждение вашего телефонного номера. На ваш номер будет отправлен 4-значный код подтверждения.</p>
+            <div class="form-group">
+                <label>Номер телефона:</label>
+                <div class="phone-inputs">
+                    <span class="phone-plus">+</span>
+                    <input type="text" id="phoneCode" maxlength="3" placeholder="XXX" class="phone-field">
+                    <span class="phone-bracket">(</span>
+                    <input type="text" id="phonePart1" maxlength="3" placeholder="XXX" class="phone-field">
+                    <span class="phone-bracket">)</span>
+                    <input type="text" id="phonePart2" maxlength="3" placeholder="XXX" class="phone-field">
+                    <span>-</span>
+                    <input type="text" id="phonePart3" maxlength="2" placeholder="XX" class="phone-field">
+                    <span>-</span>
+                    <input type="text" id="phonePart4" maxlength="2" placeholder="XX" class="phone-field">
+                </div>
+            </div>
+            <button type="button" id="sendCodeBtn" class="btn-send">Отправить</button>
+            <div id="codeBlock" style="display: none;">
+                <div class="form-group">
+                    <label>Код подтверждения:</label>
+                    <input type="text" id="smsCode" maxlength="4" placeholder="____" class="code-input">
+                </div>
+                <button type="button" id="verifyCodeBtn" class="btn-send" disabled>Проверить</button>
+            </div>
+            <div class="btn-group" style="margin-top: 25px;">
+                <button type="button" id="back2Btn" class="btn-cancel">Назад</button>
+                <button type="button" id="next2Btn" class="btn-next" disabled>Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="paymentWindow" style="display: none;">
+        <div class="register-box">
+            <h2>Шаг 3. Метод оплаты</h2>
+            <p class="info-text">Для совершения покупок в Сервисе необходимо подключить банковскую карту.</p>
+            <div class="form-group">
+                <label>Номер карты:</label>
+                <div class="card-inputs">
+                    <input type="text" id="card1" maxlength="4" placeholder="1111" class="card-field">
+                    <input type="text" id="card2" maxlength="4" placeholder="2222" class="card-field">
+                    <input type="text" id="card3" maxlength="4" placeholder="3333" class="card-field">
+                    <input type="text" id="card4" maxlength="4" placeholder="4444" class="card-field">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Срок действия:</label>
+                    <input type="text" id="cardExpiry" maxlength="5" placeholder="ММ/ГГ" class="expiry-field">
+                </div>
+                <div class="form-group">
+                    <label>CVV:</label>
+                    <input type="text" id="cardCvv" maxlength="3" placeholder="XXX" class="cvv-field">
+                </div>
+            </div>
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="agreeCheckbox">
+                    <span>Я согласен с любыми условиями, ничего не хочу читать, дайте мне уже пользоваться сервисом</span>
+                </label>
+            </div>
+            <div class="btn-group">
+                <button type="button" id="back3Btn" class="btn-cancel">Назад</button>
+                <button type="button" id="finishBtn" class="btn-next" disabled>Завершить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successWindow" style="display: none;">
+        <div class="register-box">
+            <div class="success-message">
+                <h2>Поздравляем!</h2>
+                <p>Регистрация успешно завершена!</p>
+                <p class="thanks-text">Благодарим за использование нашего сервиса!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let loaderSection = document.getElementById('loaderSection');
+        let mainContent = document.getElementById('mainContent');
+        let registerBtn = document.getElementById('registerBtn');
+        let registerWindow = document.getElementById('registerWindow');
+        let phoneWindow = document.getElementById('phoneWindow');
+        let paymentWindow = document.getElementById('paymentWindow');
+        let successWindow = document.getElementById('successWindow');
+        
+        let nameInput = document.getElementById('name');
+        let surnameInput = document.getElementById('surname');
+        let emailInput = document.getElementById('email');
+        let countrySelect = document.getElementById('country');
+        let addressInput = document.getElementById('address');
+        let passwordInput = document.getElementById('password');
+        let confirmInput = document.getElementById('confirmPassword');
+        let cancel1Btn = document.getElementById('cancel1Btn');
+        let next1Btn = document.getElementById('next1Btn');
+        
+        let phoneCode = document.getElementById('phoneCode');
+        let phonePart1 = document.getElementById('phonePart1');
+        let phonePart2 = document.getElementById('phonePart2');
+        let phonePart3 = document.getElementById('phonePart3');
+        let phonePart4 = document.getElementById('phonePart4');
+        let sendCodeBtn = document.getElementById('sendCodeBtn');
+        let codeBlock = document.getElementById('codeBlock');
+        let smsCode = document.getElementById('smsCode');
+        let verifyCodeBtn = document.getElementById('verifyCodeBtn');
+        let back2Btn = document.getElementById('back2Btn');
+        let next2Btn = document.getElementById('next2Btn');
+        
+        let card1 = document.getElementById('card1');
+        let card2 = document.getElementById('card2');
+        let card3 = document.getElementById('card3');
+        let card4 = document.getElementById('card4');
+        let cardExpiry = document.getElementById('cardExpiry');
+        let cardCvv = document.getElementById('cardCvv');
+        let agreeCheckbox = document.getElementById('agreeCheckbox');
+        let back3Btn = document.getElementById('back3Btn');
+        let finishBtn = document.getElementById('finishBtn');
+        
+        let codeVerified = false;
+
+        setTimeout(function() {
+            loaderSection.style.display = 'none';
+            mainContent.style.display = 'flex';
+        }, 2000);
+
+        registerBtn.onclick = function() {
+            mainContent.style.display = 'none';
+            registerWindow.style.display = 'flex';
+        };
+
+        function checkStep1() {
+            let name = nameInput.value.trim();
+            let surname = surnameInput.value.trim();
+            let email = emailInput.value.trim();
+            let country = countrySelect.value;
+            let address = addressInput.value.trim();
+            let pass = passwordInput.value;
+            let confirm = confirmInput.value;
+            
+            let isValid = name !== '' && surname !== '' && email !== '' && 
+                           country !== '' && address !== '' && pass !== '' && 
+                           confirm !== '' && pass === confirm;
+            next1Btn.disabled = !isValid;
+        }
+
+        nameInput.oninput = checkStep1;
+        surnameInput.oninput = checkStep1;
+        emailInput.oninput = checkStep1;
+        countrySelect.onchange = checkStep1;
+        addressInput.oninput = checkStep1;
+        passwordInput.oninput = checkStep1;
+        confirmInput.oninput = checkStep1;
+
+        cancel1Btn.onclick = function() {
+            registerWindow.style.display = 'none';
+            mainContent.style.display = 'flex';
+            nameInput.value = '';
+            surnameInput.value = '';
+            emailInput.value = '';
+            countrySelect.value = '';
+            addressInput.value = '';
+            passwordInput.value = '';
+            confirmInput.value = '';
+            next1Btn.disabled = true;
+        };
+
+        next1Btn.onclick = function() {
+            registerWindow.style.display = 'none';
+            phoneWindow.style.display = 'flex';
+            phoneCode.value = '';
+            phonePart1.value = '';
+            phonePart2.value = '';
+            phonePart3.value = '';
+            phonePart4.value = '';
+            smsCode.value = '';
+            codeBlock.style.display = 'none';
+            codeVerified = false;
+            next2Btn.disabled = true;
+            verifyCodeBtn.disabled = true;
+        };
+
+        function isPhoneComplete() {
+            return phoneCode.value.trim() !== '' &&
+                   phonePart1.value.trim() !== '' &&
+                   phonePart2.value.trim() !== '' &&
+                   phonePart3.value.trim() !== '' &&
+                   phonePart4.value.trim() !== '';
+        }
+
+        let phoneInputs = [phoneCode, phonePart1, phonePart2, phonePart3, phonePart4];
+        for (let i = 0; i < phoneInputs.length; i++) {
+            let input = phoneInputs[i];
+            input.oninput = function(e) {
+                let maxLen = parseInt(input.maxLength);
+                if (e.target.value.length === maxLen && i < phoneInputs.length - 1) {
+                    phoneInputs[i + 1].focus();
+                }
+            };
+        }
+
+        sendCodeBtn.onclick = function() {
+            if (isPhoneComplete()) {
+                codeBlock.style.display = 'block';
+            }
+        };
+
+        smsCode.oninput = function() {
+            let code = smsCode.value.trim();
+            verifyCodeBtn.disabled = code.length !== 4 || !/^\d+$/.test(code);
+        };
+
+        verifyCodeBtn.onclick = function() {
+            let code = smsCode.value.trim();
+            if (code.length === 4 && /^\d+$/.test(code)) {
+                codeVerified = true;
+                next2Btn.disabled = false;
+            }
+        };
+
+        back2Btn.onclick = function() {
+            phoneWindow.style.display = 'none';
+            registerWindow.style.display = 'flex';
+        };
+
+        next2Btn.onclick = function() {
+            phoneWindow.style.display = 'none';
+            paymentWindow.style.display = 'flex';
+            card1.value = '';
+            card2.value = '';
+            card3.value = '';
+            card4.value = '';
+            cardExpiry.value = '';
+            cardCvv.value = '';
+            agreeCheckbox.checked = false;
+            finishBtn.disabled = true;
+        };
+
+        let cardFields = [card1, card2, card3, card4];
+        for (let i = 0; i < cardFields.length; i++) {
+            let input = cardFields[i];
+            input.oninput = function(e) {
+                let val = e.target.value.replace(/\D/g, '');
+                e.target.value = val;
+                if (val.length === 4 && i < cardFields.length - 1) {
+                    cardFields[i + 1].focus();
+                }
+                checkStep3();
+            };
+        }
+
+        cardExpiry.oninput = function(e) {
+            let val = e.target.value.replace(/\D/g, '');
+            if (val.length >= 2) {
+                val = val.slice(0, 2) + '/' + val.slice(2, 4);
+            }
+            e.target.value = val;
+            checkStep3();
+        };
+
+        cardCvv.oninput = function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+            checkStep3();
+        };
+
+        function checkStep3() {
+            let cardNum = card1.value.length === 4 && card2.value.length === 4 && 
+                           card3.value.length === 4 && card4.value.length === 4;
+            let expiry = cardExpiry.value.trim().length === 5 && /^\d{2}\/\d{2}$/.test(cardExpiry.value);
+            let cvv = cardCvv.value.length === 3;
+            let agree = agreeCheckbox.checked;
+            
+            finishBtn.disabled = !(cardNum && expiry && cvv && agree);
+        }
+
+        agreeCheckbox.onchange = checkStep3;
+
+        back3Btn.onclick = function() {
+            paymentWindow.style.display = 'none';
+            phoneWindow.style.display = 'flex';
+        };
+
+        finishBtn.onclick = function() {
+            paymentWindow.style.display = 'none';
+            successWindow.style.display = 'flex';
+        };
+    </script>
+
+</body>
+</html>
